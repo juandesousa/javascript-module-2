@@ -59,9 +59,80 @@ var movies = [
 ];
 
 // create showMovies function
+// Task 1
+// Create a function called "showMovies" that
+// - iterates through the "movies" array and
+// - for each movie, it creates a <p> element with the movie title and director and append it to the #all-movies div.
+// - it sets the innerText of the #movies-number element to the total number of the movies in the array "movies"
 
+function showMovies(movies) {
 
+  const allMovies = document.getElementById('all-movies');
+  const moviesNumber = document.getElementById('movies-number');
+  
+  document.querySelectorAll(`#all-movies p:not(.alert)`).forEach(
+    element => element.remove()
+  )
+
+  movies.forEach( movie => {
+    const p = document.createElement('p');
+    p.innerText = `Title: ${movie.title} - Director: ${movie.director}`;
+    setTimeout(()=>{allMovies.appendChild(p)},1000);
+  })
+
+  moviesNumber.innerText = movies.length;
+
+}
+
+showMovies(movies)
 // create a new movie object for your favorite movie
 
+let newMovie = {
+  title: "Braveheart",
+  director: "Mel Gibson",
+  type: "Historic drama",
+  haveWatched: false,
+};
 
 // create addMovies function
+
+function addMovies(movie){
+
+  setTimeout(()=> {
+    movies.push(movie)
+    showMovies(movies)
+    console.log(movies)
+  },2000)
+  
+}
+
+addMovies(newMovie)
+
+// Task 4
+// Create a form anywhere on your page. The form should have
+// - 4 input text fields, one for each property of your movie object
+// - a "save" button.
+// When the button is clicked
+// - The field values should be used to create a new movie object literal
+// - The new movie is then added to the list of movies and gets displayed on your page
+// TIP: Use the functions you created on tasks 1-3
+
+let submitBtn = document.getElementById('submit');
+
+submitBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  const titleField = document.getElementById('title')
+  const directorField = document.getElementById('director')
+  const typeField = document.getElementById('type')
+  const haveWatchedField = document.getElementById('haveWatched')
+ 
+  let newTitle = {
+    title: titleField.value,
+    director: directorField.value,
+    type: typeField.value,
+    haveWatched: haveWatchedField.checked
+ }
+
+ addMovies(newTitle)
+})
