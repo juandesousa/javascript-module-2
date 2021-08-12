@@ -60,12 +60,18 @@ let restaurant1 = {
     restaurants: restaurants,
     findAvailableRestaurants: function (numberOfPeople) {
       // Complete here
+      return restaurants.filter( restaurant => {
+        const available = restaurant.totalSeats - restaurant.numberOfCustomers;
+        return available>numberOfPeople
+      }).map( restaurant => restaurant.name)
     },
     findRestaurantServingDish: function (dishName) {
       // Complete here
+      return restaurants.filter( restaurant => restaurant.menu.includes(dishName) ).map( restaurant => restaurant.name)
     },
     countNumberOfRestaurantsInArea: function (area) {
       // Complete here
+      return restaurants.filter( restaurant => restaurant.address.area === area ).length
     },
   };
   

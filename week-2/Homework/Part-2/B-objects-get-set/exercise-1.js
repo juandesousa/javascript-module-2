@@ -9,4 +9,10 @@ var kitten = {
 };
 
 // YOUR CODE HERE
+let arr = Object.entries(kitten);
 
+arr.forEach(element => console.log(element[1]))
+
+for (let i in kitten){
+    console.log(kitten[i])
+}

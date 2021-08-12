@@ -10,7 +10,8 @@ let person = {
     name: "Alice",
     age: 25,
   };
-  
+person.greet = () => 'Hello everybody';
+person.sayName = () => `My name is ${person.name}`;
   /*
   DO NOT EDIT ANYTHING BELOW THIS LINE
   */
@@ -21,3 +22,5 @@ let person = {
   console.log(
     `Expected result: 'My name is Alice'. Actual result: ${person.sayName()}`
   );
+
+  

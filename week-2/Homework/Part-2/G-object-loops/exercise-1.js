@@ -11,3 +11,12 @@ const studentGrades = {
   // Prints
   // TOM - 20
   // ABDUL - 19
+
+  for( let student in studentGrades){
+    if(studentGrades[student] > 18){
+      console.log(`${student.toUpperCase()} - ${studentGrades[student]}`)
+    }
+  }
+
+  let students = Object.entries(studentGrades).filter( arr =>  arr[1]>18).forEach( arr => console.log(`${arr[0].toUpperCase()} - ${arr[1]}`))
+  
