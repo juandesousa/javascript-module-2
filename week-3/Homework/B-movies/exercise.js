@@ -127,12 +127,12 @@ submitBtn.addEventListener('click', (event) => {
   const typeField = document.getElementById('type')
   const haveWatchedField = document.getElementById('haveWatched')
  
-  let newTitle = {
+  newMovie = {
     title: titleField.value,
     director: directorField.value,
     type: typeField.value,
     haveWatched: haveWatchedField.checked
  }
 
- addMovies(newTitle)
+ addMovies(newMovie)
 })
