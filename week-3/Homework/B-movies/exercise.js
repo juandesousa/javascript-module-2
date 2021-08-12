@@ -69,15 +69,15 @@ function showMovies(movies) {
 
   const allMovies = document.getElementById('all-movies');
   const moviesNumber = document.getElementById('movies-number');
-  
+
   document.querySelectorAll(`#all-movies p:not(.alert)`).forEach(
     element => element.remove()
   )
 
-  movies.forEach( movie => {
+  movies.forEach(movie => {
     const p = document.createElement('p');
     p.innerText = `Title: ${movie.title} - Director: ${movie.director}`;
-    setTimeout(()=>{allMovies.appendChild(p)},1000);
+    setTimeout(() => { allMovies.appendChild(p) }, 1000);
   })
 
   moviesNumber.innerText = movies.length;
@@ -96,14 +96,14 @@ let newMovie = {
 
 // create addMovies function
 
-function addMovies(movie){
+function addMovies(movie) {
 
-  setTimeout(()=> {
+  setTimeout(() => {
     movies.push(movie)
     showMovies(movies)
     console.log(movies)
-  },2000)
-  
+  }, 2000)
+
 }
 
 addMovies(newMovie)
@@ -126,13 +126,13 @@ submitBtn.addEventListener('click', (event) => {
   const directorField = document.getElementById('director')
   const typeField = document.getElementById('type')
   const haveWatchedField = document.getElementById('haveWatched')
- 
+
   newMovie = {
     title: titleField.value,
     director: directorField.value,
     type: typeField.value,
     haveWatched: haveWatchedField.checked
- }
+  }
 
- addMovies(newMovie)
+  addMovies(newMovie)
 })
