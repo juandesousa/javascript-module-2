@@ -71,13 +71,13 @@ function showMovies(movies) {
   const moviesNumber = document.getElementById('movies-number');
 
   document.querySelectorAll(`#all-movies p:not(.alert)`).forEach(
-    element => element.remove()
+    paragraph => paragraph.remove()
   )
 
-  movies.forEach(movie => {
+  movies.forEach((movie,index) => {
     const p = document.createElement('p');
     p.innerText = `Title: ${movie.title} - Director: ${movie.director}`;
-    setTimeout(() => { allMovies.appendChild(p) }, 1000);
+    setTimeout(() => { allMovies.appendChild(p) }, 1000*index);
   })
 
   moviesNumber.innerText = movies.length;
@@ -102,7 +102,7 @@ function addMovies(movie) {
     movies.push(movie)
     showMovies(movies)
     console.log(movies)
-  }, 2000)
+  }, 4000)
 
 }
 
